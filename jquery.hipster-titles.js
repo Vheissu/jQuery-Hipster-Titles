@@ -4,7 +4,7 @@
  * Scrolling truncated text headers and whatever else.
  *
  * Version:  1
- * Released: 27-05-2013
+ * Released: 28-05-2013
  * Source:   https://github.com/Vheissu/jQuery-Hipster-Titles
  * Plugin:   hipstertitle
  * Author:   Dwayne Charrington (dwaynecharrington@gmail.com)
@@ -24,7 +24,16 @@
  */
 ;(function ($, undefined) {
 
-    $.fn.hipstertitle = function() {
+    $.fn.hipstertitle = function(options) {
+
+        var settings = $.extend({
+            'titleClass': 'hipster-title'
+            'innerClass'    : 'hipster-title-inner',
+            'revealSpeed' : 2500,
+            'revealFx': 'swing',
+            'hideSpeed': 800,
+            'hideFx': 'linear'
+        }, options);
 
         $(this).each(function() {
 
@@ -32,16 +41,17 @@
             var $inner  = $this.children(":first");
 
             // For styling
-            $this.addClass('hipster-title');
+            $this.addClass(''+settings.titleClass+'');
 
             // No child element, lets add one
             if ($inner.length <= 0) {
-                $this.wrapInner("<span class='hipster-title-inner' />");
+                $this.wrapInner("<span class='"+settings.innerClass+"' />");
             } else {
-                $inner.addClass('hipster-title-inner');
+                $inner.addClass(''+settings.innerClass+'');
             }
 
-            $inner = $this.children('.hipster-title-inner');
+            // Query for the inner child again
+            $inner = $this.children(''+settings.innerClass+'');
 
             $this.mouseenter(function() {
                 var $headingWidth = $this.width();
@@ -53,12 +63,12 @@
                 if ($innerWidth > $headingWidth) {
                     $inner.animate({
                         left: subtract + 'px'
-                    }, 2500, "swing");
+                    }, setting.revealSpeed, setting.revealFx);
                 }
             }).mouseleave(function() {
                 $inner.animate({
                     left: "0px"
-                }, 800, "linear");
+                }, settings.hideSpeed, settings.hideFx);
             });
 
         });
