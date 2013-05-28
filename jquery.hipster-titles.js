@@ -27,10 +27,10 @@
     $.fn.hipstertitle = function(options) {
 
         var settings = $.extend({
-            'revealSpeed' : 2500,
-            'revealFx': 'swing',
+            'revealSpeed' : 5000,
+            'revealEasing': 'linear',
             'hideSpeed': 800,
-            'hideFx': 'linear'
+            'hideEasing': 'linear'
         }, options);
 
         $(this).each(function() {
@@ -49,7 +49,7 @@
             }
 
             // Query for the inner child again
-            $inner = $this.children('hipster-title-inner');
+            $inner = $this.children('.hipster-title-inner');
 
             $this.mouseenter(function() {
                 var $headingWidth = $this.width();
@@ -61,12 +61,18 @@
                 if ($innerWidth > $headingWidth) {
                     $inner.animate({
                         left: subtract + 'px'
-                    }, setting.revealSpeed, setting.revealFx);
+                    }, {
+                        duration: settings.revealSpeed,
+                        easing: settings.revealEasing
+                    });
                 }
             }).mouseleave(function() {
                 $inner.animate({
                     left: "0px"
-                }, settings.hideSpeed, settings.hideFx);
+                }, {
+                    duration: settings.hideSpeed,
+                    easing: settings.hideEasing
+                });
             });
 
         });

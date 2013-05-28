@@ -10,7 +10,34 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
 
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+        <script src="jquery.hipster-titles.js"></script>
+
         <link rel="stylesheet" href="jquery.hipster-titles.css">
+
+        <style>
+            #wrapper {
+                font-family: Arial, Helvetica, sans-serif;
+                overflow: hidden;
+                padding: 30px;
+            }
+
+            .thumbnail {
+                background: #EFEFEF;
+                color: #222;
+                display: inline;
+                float: left;
+                margin-right: 20px;
+                width: 250px;
+            }
+
+                .thumbnail h4 {
+                    color: #222;
+                    font-size: 17px;
+                    margin: 0;
+                    padding: 0;
+                }
+        </style>
 
         <script>
             $(function() {
@@ -20,11 +47,18 @@
     </head>
     <body>
 
-        <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
-        <div class="thumbnail"></div>
+        <div id="wrapper">
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="jquery.hipster-titles.js"></script>
+            <div class="thumbnail">
+                <h4>This is a really long headline that will be revealed when you hover over the top</h4>
+            </div>
+            <div class="thumbnail">
+                <h4>This is a really long headline that will be revealed when you hover over the top, it contains even more text!</h4>
+            </div>
+            <div class="thumbnail">
+                <h4>This is a short headline, no scrolling</h4>
+            </div>
+
+        </div>
     </body>
 </html>
