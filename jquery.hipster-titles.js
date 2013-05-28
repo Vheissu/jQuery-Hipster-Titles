@@ -59,7 +59,7 @@
 
                 // Inner is greater than the parent
                 if ($innerWidth > $headingWidth) {
-                    $inner.animate({
+                    $inner.stop().animate({
                         left: subtract + 'px'
                     }, {
                         duration: settings.revealSpeed,
@@ -67,7 +67,7 @@
                     });
                 }
             }).mouseleave(function() {
-                $inner.animate({
+                $inner.stop().animate({
                     left: "0px"
                 }, {
                     duration: settings.hideSpeed,
