@@ -1,0 +1,13 @@
+.hipster-title {
+     overflow: hidden;
+     position: relative;
+     white-space: nowrap;
+}
+
+.hipster-title-inner {
+    display: -moz-inline-stack;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    vertical-align: top;
+}
