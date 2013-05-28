@@ -27,8 +27,6 @@
     $.fn.hipstertitle = function(options) {
 
         var settings = $.extend({
-            'titleClass': 'hipster-title'
-            'innerClass'    : 'hipster-title-inner',
             'revealSpeed' : 2500,
             'revealFx': 'swing',
             'hideSpeed': 800,
@@ -41,17 +39,17 @@
             var $inner  = $this.children(":first");
 
             // For styling
-            $this.addClass(''+settings.titleClass+'');
+            $this.addClass("hipster-title");
 
             // No child element, lets add one
             if ($inner.length <= 0) {
-                $this.wrapInner("<span class='"+settings.innerClass+"' />");
+                $this.wrapInner("<span class='hipster-title-inner' />");
             } else {
-                $inner.addClass(''+settings.innerClass+'');
+                $inner.addClass('hipster-title-inner');
             }
 
             // Query for the inner child again
-            $inner = $this.children(''+settings.innerClass+'');
+            $inner = $this.children('hipster-title-inner');
 
             $this.mouseenter(function() {
                 var $headingWidth = $this.width();
