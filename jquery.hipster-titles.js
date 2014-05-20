@@ -28,9 +28,9 @@
     $.fn.hipstertitle = function(options) {
 
         var settings = $.extend({
-            'revealSpeed' : 5000,
+            'revealSpeed' : 800,
             'revealEasing': 'linear',
-            'hideSpeed': 800,
+            'hideSpeed': 1000,
             'hideEasing': 'linear'
         }, options);
 
@@ -60,7 +60,6 @@
 
                 // Get pixel speed for animations instead of using jQuery's non-helpful duration
                 var revealSpeed = ($innerWidth / $headingWidth) * settings.revealSpeed;
-                var hideSpeed   = ($innerWidth / $headingWidth) * settings.hideSpeed;
 
                 // Inner is greater than the parent
                 if ($innerWidth > $headingWidth) {
@@ -72,6 +71,11 @@
                     });
                 }
             }).mouseleave(function() {
+                var $headingWidth = $this.width();
+                var $innerWidth     = $inner.width();
+
+                var hideSpeed   = ($innerWidth / settings.hideSpeed) * settings.hideSpeed;
+
                 $inner.stop().animate({
                     left: "0px"
                 }, {
