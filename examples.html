@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>jQuery Hipster Titles</title>
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="jquery.hipster-titles.css">
+    </head>
+    <body>
+
+        <blockquote>
+            <h2 class="one" style="width:200px;">This is a headline that will be truncated and the rest of the text revealed upon hover.</h2>
+        </blockquote>
+
+    </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="jquery.hipster-titles.js"></script>
+    <script>
+        jQuery(function() {
+            jQuery("h2.one").hipstertitle();;
+        });
+    </script>
+</html>
