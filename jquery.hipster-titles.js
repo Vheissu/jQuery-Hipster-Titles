@@ -59,8 +59,8 @@
                 var subtract = $headingWidth - $innerWidth;
 
                 // Get pixel speed for animations instead of using jQuery's non-helpful duration
-                var revealSpeed = ($innerWidth / settings.revealSpeed) * settings.revealSpeed;
-                var hideSpeed   = ($innerWidth / settings.hideSpeed) * settings.hideSpeed;
+                var revealSpeed = ($innerWidth / $headingWidth) * settings.revealSpeed;
+                var hideSpeed   = ($innerWidth / $headingWidth) * settings.hideSpeed;
 
                 // Inner is greater than the parent
                 if ($innerWidth > $headingWidth) {
