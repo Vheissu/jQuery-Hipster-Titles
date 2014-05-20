@@ -5,10 +5,7 @@
 }
 
 .hipster-title-inner {
-    display: -moz-inline-stack;
     display: inline-block;
     position: relative;
-    zoom: 1;
-    *display: inline;
     vertical-align: top;
 }
