@@ -5,13 +5,14 @@
  *
  * Version:  1
  * Released: 28-05-2013
+ * Updated: 21-05-2014
  * Source:   https://github.com/Vheissu/jQuery-Hipster-Titles
  * Plugin:   hipstertitle
  * Author:   Dwayne Charrington (dwaynecharrington@gmail.com)
  * License:  MIT Licence
  *           http://www.opensource.org/licenses/mit-license.php
  *
- * Copyright (c) 2013 Dwayne Charrington.
+ * Copyright (c) 2014 Dwayne Charrington.
  *
  * Simple usage:
  *
@@ -27,10 +28,10 @@
     $.fn.hipstertitle = function(options) {
 
         var settings = $.extend({
-            'revealSpeed' : 5000,
-            'revealEasing': 'linear',
-            'hideSpeed': 800,
-            'hideEasing': 'linear'
+            revealSpeed: 800,
+            revealEasing: 'linear',
+            hideSpeed: 1000,
+            hideEasing: 'linear'
         }, options);
 
         $(this).each(function() {
@@ -49,7 +50,7 @@
             }
 
             // Query for the inner child again
-            $inner = $this.children('.hipster-title-inner');
+            $inner = $this.find('.hipster-title-inner');
 
             $this.mouseenter(function() {
                 var $headingWidth = $this.width();
@@ -57,20 +58,28 @@
 
                 var subtract = $headingWidth - $innerWidth;
 
+                // Get pixel speed for animations instead of using jQuery's non-helpful duration
+                var revealSpeed = ($innerWidth / $headingWidth) * settings.revealSpeed;
+
                 // Inner is greater than the parent
                 if ($innerWidth > $headingWidth) {
                     $inner.stop().animate({
                         left: subtract + 'px'
                     }, {
-                        duration: settings.revealSpeed,
+                        duration: revealSpeed,
                         easing: settings.revealEasing
                     });
                 }
             }).mouseleave(function() {
+                var $headingWidth = $this.width();
+                var $innerWidth     = $inner.width();
+
+                var hideSpeed   = ($innerWidth / settings.hideSpeed) * settings.hideSpeed;
+
                 $inner.stop().animate({
                     left: "0px"
                 }, {
-                    duration: settings.hideSpeed,
+                    duration: hideSpeed,
                     easing: settings.hideEasing
                 });
             });
