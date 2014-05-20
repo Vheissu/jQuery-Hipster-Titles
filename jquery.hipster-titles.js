@@ -28,10 +28,10 @@
     $.fn.hipstertitle = function(options) {
 
         var settings = $.extend({
-            'revealSpeed' : 800,
-            'revealEasing': 'linear',
-            'hideSpeed': 1000,
-            'hideEasing': 'linear'
+            revealSpeed: 800,
+            revealEasing: 'linear',
+            hideSpeed: 1000,
+            hideEasing: 'linear'
         }, options);
 
         $(this).each(function() {
