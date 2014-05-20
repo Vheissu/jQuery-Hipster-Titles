@@ -50,7 +50,7 @@
             }
 
             // Query for the inner child again
-            $inner = $this.children('.hipster-title-inner');
+            $inner = $this.find('.hipster-title-inner');
 
             $this.mouseenter(function() {
                 var $headingWidth = $this.width();
