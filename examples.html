@@ -6,11 +6,49 @@
         <title>jQuery Hipster Titles</title>
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="jquery.hipster-titles.css">
+        <style>
+            html, body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            h2 {
+                font-weight: 600;
+                margin: 0;
+            }
+
+            blockquote {
+                border-top: 2px solid #EFEFEF;
+                display: block;
+                margin-bottom: 15px;
+                margin-top: 15px;
+                padding-bottom: 15px;
+                padding-top: 15px;
+            }
+
+            blockquote:first-child {
+                border-top: none;
+            }
+
+            .note {
+                color: #AAA;
+                display: block;
+                font-size: 14px;
+                line-height: 150%;
+                margin-bottom: 15px;
+                width: 500px;
+            }
+        </style>
     </head>
     <body>
 
         <blockquote>
+            <span class="note">This example shows a heading 200px in length with default plugin settings</span>
             <h2 class="one" style="width:200px;">This is a headline that will be truncated and the rest of the text revealed upon hover.</h2>
+        </blockquote>
+
+        <blockquote>
+            <span class="note">This example shows a heading 200px in length with a reveal speed of 400ms (you'll probably notice it is twice as fast)</span>
+            <h2 class="two" style="width:200px;">This is a headline that will be truncated and the rest of the text revealed upon hover.</h2>
         </blockquote>
 
     </body>
@@ -18,7 +56,10 @@
     <script src="jquery.hipster-titles.js"></script>
     <script>
         jQuery(function() {
-            jQuery("h2.one").hipstertitle();;
+            jQuery("h2.one").hipstertitle();
+            jQuery("h2.two").hipstertitle({
+                revealSpeed: 400
+            });
         });
     </script>
 </html>
