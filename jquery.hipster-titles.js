@@ -5,13 +5,14 @@
  *
  * Version:  1
  * Released: 28-05-2013
+ * Updated: 21-05-2014
  * Source:   https://github.com/Vheissu/jQuery-Hipster-Titles
  * Plugin:   hipstertitle
  * Author:   Dwayne Charrington (dwaynecharrington@gmail.com)
  * License:  MIT Licence
  *           http://www.opensource.org/licenses/mit-license.php
  *
- * Copyright (c) 2013 Dwayne Charrington.
+ * Copyright (c) 2014 Dwayne Charrington.
  *
  * Simple usage:
  *
@@ -57,12 +58,16 @@
 
                 var subtract = $headingWidth - $innerWidth;
 
+                // Get pixel speed for animations instead of using jQuery's non-helpful duration
+                var revealSpeed = ($innerWidth / settings.revealSpeed) * settings.revealSpeed;
+                var hideSpeed   = ($innerWidth / settings.hideSpeed) * settings.hideSpeed;
+
                 // Inner is greater than the parent
                 if ($innerWidth > $headingWidth) {
                     $inner.stop().animate({
                         left: subtract + 'px'
                     }, {
-                        duration: settings.revealSpeed,
+                        duration: revealSpeed,
                         easing: settings.revealEasing
                     });
                 }
@@ -70,7 +75,7 @@
                 $inner.stop().animate({
                     left: "0px"
                 }, {
-                    duration: settings.hideSpeed,
+                    duration: hideSpeed,
                     easing: settings.hideEasing
                 });
             });
